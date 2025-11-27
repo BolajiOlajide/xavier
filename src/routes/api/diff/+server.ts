@@ -166,7 +166,7 @@ export const POST: RequestHandler = async ({ request }) => {
                 console.log(`Running amp in ${repoDir}... (Step ${step})`);
                 
                 await new Promise<void>((resolve, reject) => {
-                    const child = spawn(ampPath, ['-x', prompt], { 
+                    const child = spawn(ampPath, ['-x', prompt, '--dangerously-allow-all'], { 
                         cwd: repoDir,
                         stdio: 'inherit' 
                     });

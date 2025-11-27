@@ -45,6 +45,13 @@
 		error = null;
         statusMessage = 'Initializing...';
         
+        // Collapse all existing turns immediately
+        for (const turn of history) {
+            turn.expanded = false;
+        }
+        // Trigger reactivity for the array
+        history = history;
+        
         // Scroll to top
         if (scrollViewport) {
             scrollViewport.scrollTo({ top: 0, behavior: 'smooth' });
@@ -98,6 +105,11 @@
                             threadId = msg.threadId;
                             generated = true;
                             
+                            // Collapse all previous turns (again, just to be safe/ensure state)
+                            for (const turn of history) {
+                                turn.expanded = false;
+                            }
+
                             history.unshift({
                                 prompt: currentPrompt,
                                 diff: diff,
