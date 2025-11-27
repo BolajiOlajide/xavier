@@ -1,0 +1,12 @@
+diff --git a/artifact.go b/artifact.go
+index 1234567..89abcdef 100644
+--- a/artifact.go
++++ b/artifact.go
+@@ -10,6 +10,7 @@ type Artifact struct {
+ 	ID          string
+ 	Name        string
+ 	Size        int64
++	CreatedAt   time.Time
+ }
+ 
+ func NewArtifact(name string) *Artifact {
